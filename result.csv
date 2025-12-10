@@ -1,4 +1,4 @@
-ID,Name,CategoryTitle,CategoryKey,Price30cm,Price40cm,Price50cm,Tag,IsSpecial,imageURL
+﻿ID,Name,CategoryTitle,CategoryKey,Price30cm,Price40cm,Price50cm,Tag,IsSpecial,imageURL
 1,Маргарита,Класични Пици,classics,289,399,599,,,"images/pizza_placeholder.png"
 2,Фунги,Класични Пици,classics,289,429,619,,,"images/pizza_placeholder.png"
 3,Везувио,Класични Пици,classics,289,429,619,,,"images/pizza_placeholder.png"
@@ -11,7 +11,7 @@ ID,Name,CategoryTitle,CategoryKey,Price30cm,Price40cm,Price50cm,Tag,IsSpecial,im
 10,Пармицана,Гурмански Пици,gourmet,349,499,729,,,"images/pizza_placeholder.png"
 11,Бјанка,Гурмански Пици,gourmet,349,499,729,"Препорака на мајсторот",,"images/pizza_placeholder.png"
 12,Делициоза,Гурмански Пици,gourmet,349,499,729,"Препорака на мајсторот",,"images/pizza_placeholder.png"
-13,Кватро Стациони,Гурмански Пици,gourmet,349,499,729,,,"images/pizza_placeholder.png"
+13,Кватро Стаџиони,Гурмански Пици,gourmet,349,499,729,,,"images/pizza_placeholder.png"
 14,Тоно е Рукола,Гурмански Пици,gourmet,379,599,799,,,"images/pizza_placeholder.png"
 16,Пршуто,Гурмански Пици,gourmet,399,649,899,,,"images/pizza_placeholder.png"
 15,Гурманска,Гурмански Пици,gourmet,449,699,989,,,"images/pizza_placeholder.png"
