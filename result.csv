@@ -1,6 +1,6 @@
 ID,Name,CategoryTitle,CategoryKey,Price30cm,Price40cm,Price50cm,Tag,IsSpecial,imageURL
 1,Маргарита,Класични Пици,classics,289,399,599,,,"images/pizza_placeholder.png"
-2,Фунги,Класични Пици,classics,289,429,619,,,".images/pizza_placeholder.png"
+2,Фунги,Класични Пици,classics,289,429,619,,,"images/pizza_placeholder.png"
 3,Везувио,Класични Пици,classics,289,429,619,,,"images/pizza_placeholder.png"
 4,Хаваи,Класични Пици,classics,299,439,629,,,"images/pizza_placeholder.png"
 5,Капричиоза,Класични Пици,classics,299,439,629,,,"images/pizza_placeholder.png"
