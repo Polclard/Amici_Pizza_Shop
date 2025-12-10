@@ -204,6 +204,64 @@
           "isSpecial": true
         }
       ]
+    },
+    "others": {
+      "title": "Пастрмалија",
+      "items": [
+        {
+          "id": 101,
+          "name": "Пастрмалија Пилешка",
+          "imageURL": "../images/pizza_placeholder.png",
+          "singlePrice": 299
+        },
+        {
+          "id": 102,
+          "name": "Пастрмалија Свинска",
+          "imageURL": "../images/pizza_placeholder.png",
+          "singlePrice": 299
+        }
+      ]
+    },
+    "pizza_slices": {
+      "title": "Пица на парче",
+      "items": [
+        {
+          "id": 103,
+          "name": "Маргарита парче",
+          "imageURL": "../images/pizza_placeholder.png",
+          "singlePrice": 69
+        },
+        {
+          "id": 104,
+          "name": "Капричиоза парче",
+          "imageURL": "../images/pizza_placeholder.png",
+          "singlePrice": 89
+        },
+        {
+          "id": 105,
+          "name": "Тоно парче",
+          "imageURL": "../images/pizza_placeholder.png",
+          "singlePrice": 89
+        },
+        {
+          "id": 106,
+          "name": "Посна пица",
+          "imageURL": "../images/pizza_placeholder.png",
+          "singlePrice": 79
+        },
+        {
+          "id": 107,
+          "name": "Посна пица без кечап",
+          "imageURL": "../images/pizza_placeholder.png",
+          "singlePrice": 79
+        },
+        {
+          "id": 108,
+          "name": "Посна пица без кечап и без печурки",
+          "imageURL": "../images/pizza_placeholder.png",
+          "singlePrice": 79
+        }
+      ]
     }
   }
 }
