@@ -251,11 +251,11 @@ function checkout() {
   let total = 0;
 
   cart.forEach((item) => {
-    message += `- ${item.name} (${item.size}) - ${item.price} ден\n`;
+    message += `- ${item.name} (${item.size}) - ${item.price} ден. \n`;
     total += item.price;
   });
 
-  message += `\nВкупно: ${total} ден\n\n`;
+  message += `\n Вкупно: ${total} ден. \n\n`;
 
   const encodedMessage = encodeURIComponent(message);
   window.open(`https://wa.me/38970945499?text=${encodedMessage}`, "_blank");
