@@ -9,6 +9,9 @@ document.addEventListener("DOMContentLoaded", () => {
 // Нова променлива за URL на JSON датотеката
 const JSON_URL = "menuData.json";
 
+let menuData = {};
+let tags = {};
+
 /**
  * Асинхроно вчитува податоци од JSON датотека и потоа го рендерира менито.
  */
@@ -36,6 +39,187 @@ async function loadMenuDataAndRender() {
       "<p style='text-align:center; color: var(--primary); font-weight:bold; padding: 3rem;'>Грешка при вчитување на менито. Проверете дали 'menuData.json' постои.</p>";
   }
 }
+
+// const tags = {
+//   chefs_choice: "Препорака на мајсторот",
+//   kitchen_specialty: "Наш специјалитет",
+// };
+// // Data from Menu Image (Macedonian names and Denars prices)
+// const menuData = {
+//   classics: {
+//     title: "Класични Пици",
+//     items: [
+//       {
+//         id: 1,
+//         name: "Маргарита",
+//         prices: [289, 399, 599],
+//         imageURL: "../images/pizza_placeholder.png",
+//       },
+//       {
+//         id: 2,
+//         name: "Фунги",
+//         prices: [289, 429, 619],
+//         imageURL: "../images/pizza_placeholder.png",
+//       },
+//       {
+//         id: 3,
+//         name: "Везувио",
+//         prices: [289, 429, 619],
+//         imageURL: "../images/pizza_placeholder.png",
+//       },
+//       {
+//         id: 4,
+//         name: "Хаваи",
+//         prices: [299, 439, 629],
+//         imageURL: "../images/pizza_placeholder.png",
+//       },
+//       {
+//         id: 5,
+//         name: "Капричиоза",
+//         prices: [299, 439, 629],
+//         imageURL: "../images/pizza_placeholder.png",
+//       },
+//     ],
+//   },
+//   veggie: {
+//     title: "Вегетаријански Пици",
+//     items: [
+//       {
+//         id: 6,
+//         name: "Веге",
+//         prices: [299, 439, 629],
+//         imageURL: "../images/pizza_placeholder.png",
+//       },
+//       {
+//         id: 7,
+//         name: "Кватро Формаџи",
+//         prices: [349, 499, 729],
+//         imageURL: "../images/pizza_placeholder.png",
+//       },
+//     ],
+//   },
+//   gourmet: {
+//     title: "Гурмански Пици",
+//     items: [
+//       {
+//         id: 8,
+//         name: "Пеперони",
+//         prices: [319, 449, 649],
+//         imageURL: "../images/pizza_placeholder.png",
+//       },
+//       {
+//         id: 9,
+//         name: "Тоно",
+//         prices: [319, 449, 649],
+//         imageURL: "../images/pizza_placeholder.png",
+//       },
+//       {
+//         id: 10,
+//         name: "Пармицана",
+//         prices: [349, 499, 729],
+//         imageURL: "../images/pizza_placeholder.png",
+//       },
+//       {
+//         id: 11,
+//         name: "Бјанка",
+//         prices: [349, 499, 729],
+//         tag: tags.chefs_choice,
+//         imageURL: "../images/pizza_placeholder.png",
+//       },
+//       {
+//         id: 12,
+//         name: "Делициоза",
+//         prices: [349, 499, 729],
+//         tag: tags.chefs_choice,
+//         imageURL: "../images/pizza_placeholder.png",
+//       },
+//       {
+//         id: 13,
+//         name: "Кватро Стациони",
+//         prices: [349, 499, 729],
+//         imageURL: "../images/pizza_placeholder.png",
+//       },
+//       {
+//         id: 14,
+//         name: "Тоно е Рукола",
+//         prices: [379, 599, 799],
+//         imageURL: "../images/pizza_placeholder.png",
+//       },
+//       {
+//         id: 16,
+//         name: "Пршуто",
+//         prices: [399, 649, 899],
+//         imageURL: "../images/pizza_placeholder.png",
+//       },
+//       {
+//         id: 15,
+//         name: "Гурманска",
+//         prices: [449, 699, 989],
+//         imageURL: "../images/pizza_placeholder.png",
+//       },
+//     ],
+//   },
+//   premium: {
+//     title: "Премиум Пици",
+//     items: [
+//       {
+//         id: 17,
+//         name: "Сапоре Рустико",
+//         prices: [479, 749, 1049],
+//         tag: tags.chefs_choice,
+//         imageURL: "../images/pizza_placeholder.png",
+//       },
+//       {
+//         id: 18,
+//         name: "Македонка",
+//         prices: [499, 799, 1099],
+//         tag: tags.kitchen_specialty,
+//         isSpecial: true,
+//         imageURL: "../images/pizza_placeholder.png",
+//       },
+//     ],
+//   },
+//   others: {
+//     title: "Пастрмалија",
+//     items: [
+//       {
+//         id: 101,
+//         name: "Пастрмалија Пилешка",
+//         singlePrice: 299,
+//         imageURL: "../images/pizza_placeholder.png",
+//       },
+//       {
+//         id: 102,
+//         name: "Пастрмалија Свинска",
+//         singlePrice: 299,
+//         imageURL: "../images/pizza_placeholder.png",
+//       },
+//     ],
+//   },
+//   pizza_slices: {
+//     title: "Пица на парче",
+//     items: [
+//       {
+//         id: 103,
+//         name: "Маргарита парче",
+//         singlePrice: 69,
+//         imageURL: "../images/pizza_placeholder.png",
+//       },
+//       {
+//         id: 104,
+//         name: "Капричиоза парче",
+//         singlePrice: 89,
+//         imageURL: "../images/pizza_placeholder.png",
+//       },
+//       {
+//         id: 105,
+//         name: "Тоно парче",
+//         singlePrice: 89,
+//         imageURL: "../images/pizza_placeholder.png",
+//       },
+//     ],
+//   },
+// };
 
 // Global State
 let cart = [];
