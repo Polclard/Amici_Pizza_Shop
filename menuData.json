@@ -6,7 +6,7 @@
         {
           "id": 1,
           "name": "Маргарита",
-          "imageURL": "../images/pizza_placeholder.png",
+          "imageURL": "https://github.com/Polclard/Amici_Pizza_Shop/blob/main/images/pizza_placeholder.png",
           "prices": [
             289,
             399,
@@ -16,7 +16,7 @@
         {
           "id": 2,
           "name": "Фунги",
-          "imageURL": "../images/pizza_placeholder.png",
+          "imageURL": ".https://github.com/Polclard/Amici_Pizza_Shop/blob/main/images/pizza_placeholder.png",
           "prices": [
             289,
             429,
@@ -26,7 +26,7 @@
         {
           "id": 3,
           "name": "Везувио",
-          "imageURL": "../images/pizza_placeholder.png",
+          "imageURL": "https://github.com/Polclard/Amici_Pizza_Shop/blob/main/images/pizza_placeholder.png",
           "prices": [
             289,
             429,
@@ -36,7 +36,7 @@
         {
           "id": 4,
           "name": "Хаваи",
-          "imageURL": "../images/pizza_placeholder.png",
+          "imageURL": "https://github.com/Polclard/Amici_Pizza_Shop/blob/main/images/pizza_placeholder.png",
           "prices": [
             299,
             439,
@@ -46,7 +46,7 @@
         {
           "id": 5,
           "name": "Капричиоза",
-          "imageURL": "../images/pizza_placeholder.png",
+          "imageURL": "https://github.com/Polclard/Amici_Pizza_Shop/blob/main/images/pizza_placeholder.png",
           "prices": [
             299,
             439,
@@ -61,7 +61,7 @@
         {
           "id": 6,
           "name": "Веге",
-          "imageURL": "../images/pizza_placeholder.png",
+          "imageURL": "https://github.com/Polclard/Amici_Pizza_Shop/blob/main/images/pizza_placeholder.png",
           "prices": [
             299,
             439,
@@ -71,7 +71,7 @@
         {
           "id": 7,
           "name": "Кватро Формаџи",
-          "imageURL": "../images/pizza_placeholder.png",
+          "imageURL": "https://github.com/Polclard/Amici_Pizza_Shop/blob/main/images/pizza_placeholder.png",
           "prices": [
             349,
             499,
@@ -86,7 +86,7 @@
         {
           "id": 8,
           "name": "Пеперони",
-          "imageURL": "../images/pizza_placeholder.png",
+          "imageURL": "https://github.com/Polclard/Amici_Pizza_Shop/blob/main/images/pizza_placeholder.png",
           "prices": [
             319,
             449,
@@ -96,7 +96,7 @@
         {
           "id": 9,
           "name": "Тоно",
-          "imageURL": "../images/pizza_placeholder.png",
+          "imageURL": "https://github.com/Polclard/Amici_Pizza_Shop/blob/main/images/pizza_placeholder.png",
           "prices": [
             319,
             449,
@@ -106,7 +106,7 @@
         {
           "id": 10,
           "name": "Пармицана",
-          "imageURL": "../images/pizza_placeholder.png",
+          "imageURL": "https://github.com/Polclard/Amici_Pizza_Shop/blob/main/images/pizza_placeholder.png",
           "prices": [
             349,
             499,
@@ -116,7 +116,7 @@
         {
           "id": 11,
           "name": "Бјанка",
-          "imageURL": "../images/pizza_placeholder.png",
+          "imageURL": "https://github.com/Polclard/Amici_Pizza_Shop/blob/main/images/pizza_placeholder.png",
           "prices": [
             349,
             499,
@@ -127,7 +127,7 @@
         {
           "id": 12,
           "name": "Делициоза",
-          "imageURL": "../images/pizza_placeholder.png",
+          "imageURL": "https://github.com/Polclard/Amici_Pizza_Shop/blob/main/images/pizza_placeholder.png",
           "prices": [
             349,
             499,
@@ -138,7 +138,7 @@
         {
           "id": 13,
           "name": "Кватро Стациони",
-          "imageURL": "../images/pizza_placeholder.png",
+          "imageURL": "https://github.com/Polclard/Amici_Pizza_Shop/blob/main/images/pizza_placeholder.png",
           "prices": [
             349,
             499,
@@ -148,7 +148,7 @@
         {
           "id": 14,
           "name": "Тоно е Рукола",
-          "imageURL": "../images/pizza_placeholder.png",
+          "imageURL": "https://github.com/Polclard/Amici_Pizza_Shop/blob/main/images/pizza_placeholder.png",
           "prices": [
             379,
             599,
@@ -158,7 +158,7 @@
         {
           "id": 16,
           "name": "Пршуто",
-          "imageURL": "../images/pizza_placeholder.png",
+          "imageURL": "https://github.com/Polclard/Amici_Pizza_Shop/blob/main/images/pizza_placeholder.png",
           "prices": [
             399,
             649,
@@ -168,7 +168,7 @@
         {
           "id": 15,
           "name": "Гурманска",
-          "imageURL": "../images/pizza_placeholder.png",
+          "imageURL": "https://github.com/Polclard/Amici_Pizza_Shop/blob/main/images/pizza_placeholder.png",
           "prices": [
             449,
             699,
@@ -183,7 +183,7 @@
         {
           "id": 17,
           "name": "Сапоре Рустико",
-          "imageURL": "../images/pizza_placeholder.png",
+          "imageURL": "https://github.com/Polclard/Amici_Pizza_Shop/blob/main/images/pizza_placeholder.png",
           "prices": [
             479,
             749,
@@ -194,7 +194,7 @@
         {
           "id": 18,
           "name": "Македонка",
-          "imageURL": "../images/pizza_placeholder.png",
+          "imageURL": "https://github.com/Polclard/Amici_Pizza_Shop/blob/main/images/pizza_placeholder.png",
           "prices": [
             499,
             799,
