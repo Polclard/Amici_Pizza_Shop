@@ -4,7 +4,7 @@ name: Convert CSV to JSON
 
 on:
   # Изврши го овој workflow секогаш кога ќе има притискање (push)
-  # на 'main' или 'master' гранката (branch), но само ако се промени menu.csv
+  # на 'main' или 'master' гранката (branch), но само ако се промени result.csv
   push:
     branches:
       - main
@@ -26,7 +26,7 @@ jobs:
           node-version: "20"
 
       - name: Execute CSV to JSON conversion script
-        run: node parser.js
+        run: node csvToJsonParser.js
 
       - name: Commit and push JSON if changed
         run: |
