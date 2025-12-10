@@ -1,0 +1,48 @@
+# .github/workflows/convert_csv.yml
+
+name: Convert CSV to JSON
+
+on:
+  # Изврши го овој workflow секогаш кога ќе има притискање (push)
+  # на 'main' или 'master' гранката (branch), но само ако се промени menu.csv
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - "result.csv"
+      - "csvToJsonParser.js" # Додадете го и парсерот за секој случај
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Execute CSV to JSON conversion script
+        run: node parser.js
+
+      - name: Commit and push JSON if changed
+        run: |
+          # Конфигурирај Git корисник за commit
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+          # Провери дали има промени во menuData.json
+          if git diff --exit-code ${{ env.JSON_FILE }}; then
+            echo "menuData.json не е променет. Прескокнувам commit."
+          else
+            echo "Промените во menuData.json ќе бидат запишани."
+            git add menuData.json
+            git commit -m "Auto-generated menuData.json after CSV update"
+            # Притисни ги промените во репозиториумот
+            git push
+          fi
+        env:
+          JSON_FILE: menuData.json
