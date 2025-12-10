@@ -1,8 +1,6 @@
 name: Convert CSV to JSON
 
 on:
-  # Изврши го овој workflow секогаш кога ќе има притискање (push)
-  # на 'main' или 'master' гранката (branch), но само ако се промени result.csv или парсерот
   push:
     branches:
       - main
@@ -15,7 +13,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    # ⚠️ КЛУЧНО: Додавање дозволи за запишување
     permissions:
       contents: write
 
@@ -29,7 +26,6 @@ jobs:
           node-version: "20"
 
       - name: Execute CSV to JSON conversion script
-        # Користиме 'node csvToJsonParser.js' за да го извршиме ES модулот
         run: node csvToJsonParser.js
 
       - name: Commit and push JSON if changed

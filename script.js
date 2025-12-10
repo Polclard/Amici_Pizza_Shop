@@ -1,4 +1,3 @@
-// Initialize Icons globally (called after DOM content is loaded)
 document.addEventListener("DOMContentLoaded", () => {
   if (typeof lucide !== "undefined" && lucide.createIcons) {
     lucide.createIcons();
@@ -6,15 +5,11 @@ document.addEventListener("DOMContentLoaded", () => {
   loadMenuDataAndRender();
 });
 
-// Нова променлива за URL на JSON датотеката
 const JSON_URL = "menuData.json";
 
 let menuData = {};
 let tags = {};
 
-/**
- * Асинхроно вчитува податоци од JSON датотека и потоа го рендерира менито.
- */
 async function loadMenuDataAndRender() {
   const container = document.getElementById("menuContainer");
   if (!container) return;
@@ -28,8 +23,6 @@ async function loadMenuDataAndRender() {
 
     const data = await response.json();
 
-    // ВАЖНО: Присвојување на вчитаните податоци на глобалната променлива
-    // Ја користиме структурата 'menuData' од вашиот JSON
     menuData = data.menuData;
 
     renderMenu();
@@ -40,199 +33,13 @@ async function loadMenuDataAndRender() {
   }
 }
 
-// const tags = {
-//   chefs_choice: "Препорака на мајсторот",
-//   kitchen_specialty: "Наш специјалитет",
-// };
-// // Data from Menu Image (Macedonian names and Denars prices)
-// const menuData = {
-//   classics: {
-//     title: "Класични Пици",
-//     items: [
-//       {
-//         id: 1,
-//         name: "Маргарита",
-//         prices: [289, 399, 599],
-//         imageURL: "../images/pizza_placeholder.png",
-//       },
-//       {
-//         id: 2,
-//         name: "Фунги",
-//         prices: [289, 429, 619],
-//         imageURL: "../images/pizza_placeholder.png",
-//       },
-//       {
-//         id: 3,
-//         name: "Везувио",
-//         prices: [289, 429, 619],
-//         imageURL: "../images/pizza_placeholder.png",
-//       },
-//       {
-//         id: 4,
-//         name: "Хаваи",
-//         prices: [299, 439, 629],
-//         imageURL: "../images/pizza_placeholder.png",
-//       },
-//       {
-//         id: 5,
-//         name: "Капричиоза",
-//         prices: [299, 439, 629],
-//         imageURL: "../images/pizza_placeholder.png",
-//       },
-//     ],
-//   },
-//   veggie: {
-//     title: "Вегетаријански Пици",
-//     items: [
-//       {
-//         id: 6,
-//         name: "Веге",
-//         prices: [299, 439, 629],
-//         imageURL: "../images/pizza_placeholder.png",
-//       },
-//       {
-//         id: 7,
-//         name: "Кватро Формаџи",
-//         prices: [349, 499, 729],
-//         imageURL: "../images/pizza_placeholder.png",
-//       },
-//     ],
-//   },
-//   gourmet: {
-//     title: "Гурмански Пици",
-//     items: [
-//       {
-//         id: 8,
-//         name: "Пеперони",
-//         prices: [319, 449, 649],
-//         imageURL: "../images/pizza_placeholder.png",
-//       },
-//       {
-//         id: 9,
-//         name: "Тоно",
-//         prices: [319, 449, 649],
-//         imageURL: "../images/pizza_placeholder.png",
-//       },
-//       {
-//         id: 10,
-//         name: "Пармицана",
-//         prices: [349, 499, 729],
-//         imageURL: "../images/pizza_placeholder.png",
-//       },
-//       {
-//         id: 11,
-//         name: "Бјанка",
-//         prices: [349, 499, 729],
-//         tag: tags.chefs_choice,
-//         imageURL: "../images/pizza_placeholder.png",
-//       },
-//       {
-//         id: 12,
-//         name: "Делициоза",
-//         prices: [349, 499, 729],
-//         tag: tags.chefs_choice,
-//         imageURL: "../images/pizza_placeholder.png",
-//       },
-//       {
-//         id: 13,
-//         name: "Кватро Стациони",
-//         prices: [349, 499, 729],
-//         imageURL: "../images/pizza_placeholder.png",
-//       },
-//       {
-//         id: 14,
-//         name: "Тоно е Рукола",
-//         prices: [379, 599, 799],
-//         imageURL: "../images/pizza_placeholder.png",
-//       },
-//       {
-//         id: 16,
-//         name: "Пршуто",
-//         prices: [399, 649, 899],
-//         imageURL: "../images/pizza_placeholder.png",
-//       },
-//       {
-//         id: 15,
-//         name: "Гурманска",
-//         prices: [449, 699, 989],
-//         imageURL: "../images/pizza_placeholder.png",
-//       },
-//     ],
-//   },
-//   premium: {
-//     title: "Премиум Пици",
-//     items: [
-//       {
-//         id: 17,
-//         name: "Сапоре Рустико",
-//         prices: [479, 749, 1049],
-//         tag: tags.chefs_choice,
-//         imageURL: "../images/pizza_placeholder.png",
-//       },
-//       {
-//         id: 18,
-//         name: "Македонка",
-//         prices: [499, 799, 1099],
-//         tag: tags.kitchen_specialty,
-//         isSpecial: true,
-//         imageURL: "../images/pizza_placeholder.png",
-//       },
-//     ],
-//   },
-//   others: {
-//     title: "Пастрмалија",
-//     items: [
-//       {
-//         id: 101,
-//         name: "Пастрмалија Пилешка",
-//         singlePrice: 299,
-//         imageURL: "../images/pizza_placeholder.png",
-//       },
-//       {
-//         id: 102,
-//         name: "Пастрмалија Свинска",
-//         singlePrice: 299,
-//         imageURL: "../images/pizza_placeholder.png",
-//       },
-//     ],
-//   },
-//   pizza_slices: {
-//     title: "Пица на парче",
-//     items: [
-//       {
-//         id: 103,
-//         name: "Маргарита парче",
-//         singlePrice: 69,
-//         imageURL: "../images/pizza_placeholder.png",
-//       },
-//       {
-//         id: 104,
-//         name: "Капричиоза парче",
-//         singlePrice: 89,
-//         imageURL: "../images/pizza_placeholder.png",
-//       },
-//       {
-//         id: 105,
-//         name: "Тоно парче",
-//         singlePrice: 89,
-//         imageURL: "../images/pizza_placeholder.png",
-//       },
-//     ],
-//   },
-// };
-
-// Global State
 let cart = [];
 const SIZE_LABELS = ["Средна (30cm)", "Фамилијарна (40cm)", "Џамбо (50cm)"];
 
-/**
- * Renders the entire menu dynamically based on menuData.
- */
 function renderMenu() {
   const container = document.getElementById("menuContainer");
   if (!container) return;
 
-  // Iterate through each category
   for (const [key, section] of Object.entries(menuData)) {
     const sectionEl = document.createElement("div");
     sectionEl.innerHTML = `<h2 class="section-title">${section.title}</h2>`;
@@ -247,7 +54,6 @@ function renderMenu() {
       card.dataset.itemId = item.id;
       card.dataset.category = key;
 
-      // Badge logic
       let badgeHTML = "";
       if (item.tag) {
         const specialClass = item.isSpecial ? "special" : "";
@@ -257,10 +63,8 @@ function renderMenu() {
       let priceHTML, selectorHTML;
 
       if (hasSizes) {
-        // Initial price is always the smallest size (index 0)
         priceHTML = `<div class="price-tag" id="price-${item.id}">${item.prices[0]} <span class="price-unit">ден</span></div>`;
 
-        // Size selector HTML
         selectorHTML = `
                     <div class="size-selector" data-selected-size="0" id="selector-${item.id}">
                         <div class="size-option active" onclick="changeSize(${item.id}, 0, this)">30cm</div>
@@ -269,9 +73,8 @@ function renderMenu() {
                     </div>
                 `;
       } else {
-        // Single price item
         priceHTML = `<div class="price-tag">${item.singlePrice} <span class="price-unit">ден</span></div>`;
-        selectorHTML = `<div style="height: 10px;"></div>`; // Spacer for single items
+        selectorHTML = `<div style="height: 10px;"></div>`;
       }
 
       card.innerHTML = `
@@ -304,7 +107,6 @@ function renderMenu() {
     sectionEl.appendChild(grid);
     container.appendChild(sectionEl);
   }
-  // Re-initialize lucide icons for newly created elements
   if (typeof lucide !== "undefined" && lucide.createIcons) {
     lucide.createIcons();
   }
@@ -317,28 +119,23 @@ function renderMenu() {
  * @param {HTMLElement} element - The clicked size option element.
  */
 function changeSize(itemId, sizeIndex, element) {
-  // 1. Update visual selection
   const parent = element.parentElement;
   Array.from(parent.children).forEach((child) =>
     child.classList.remove("active")
   );
   element.classList.add("active");
 
-  // 2. Find item and price
   let item;
-  // Helper function to find item across all categories
   for (const cat in menuData) {
     const found = menuData[cat].items.find((i) => i.id === itemId);
     if (found) item = found;
   }
 
   if (item && item.prices) {
-    // 3. Update price display
     document.getElementById(
       `price-${itemId}`
     ).innerHTML = `${item.prices[sizeIndex]} <span class="price-unit">ден</span>`;
 
-    // 4. Store current selected size index on the selector's parent element
     parent.dataset.selectedSize = sizeIndex;
   }
 }
@@ -355,14 +152,12 @@ function addToCart(itemId, categoryKey) {
   if (!item) return;
 
   if (item.prices) {
-    // Find the active size from the selector in the DOM
     const selectorEl = document.getElementById(`selector-${itemId}`);
     selectedSizeIndex = parseInt(selectorEl.dataset.selectedSize || 0);
 
     price = item.prices[selectedSizeIndex];
     sizeName = SIZE_LABELS[selectedSizeIndex];
   } else {
-    // Single price item
     price = item.singlePrice;
     sizeName = "Порција/Парче";
   }
@@ -371,11 +166,11 @@ function addToCart(itemId, categoryKey) {
     name: item.name,
     size: sizeName,
     price: price,
-    id: Date.now() + Math.random(), // unique id for cart item
+    id: Date.now() + Math.random(),
   });
 
   updateCartUI();
-  toggleCart(true); // Open cart on add
+  toggleCart(true);
 }
 
 /**
@@ -426,7 +221,6 @@ function updateCartUI() {
   itemsEl.innerHTML = html;
   totalEl.innerText = `${total} ден`;
 
-  // Re-initialize lucide icons for newly created cart items
   if (typeof lucide !== "undefined" && lucide.createIcons) {
     lucide.createIcons();
   }
@@ -461,9 +255,8 @@ function checkout() {
     total += item.price;
   });
 
-  message += `\nВкупно: ${total} ден\n\nМојата адреса за достава е: [Внесете ја Вашата Адреса]`;
+  message += `\nВкупно: ${total} ден\n\n`;
 
   const encodedMessage = encodeURIComponent(message);
-  // Use the phone number from the menu (070 945 499)
   window.open(`https://wa.me/38970945499?text=${encodedMessage}`, "_blank");
 }
