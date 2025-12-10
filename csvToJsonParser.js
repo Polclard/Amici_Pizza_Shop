@@ -3,7 +3,7 @@
 // ===========================================
 import fs from "fs";
 import path from "path";
-import { fileURLToPath } from "url"; // Потребно за работа со __dirname во ES Modules
+import { fileURLToPath } from "url";
 
 // Добивање на еквивалентот на __filename и __dirname за ES модули
 const __filename = fileURLToPath(import.meta.url);
@@ -13,19 +13,21 @@ const __dirname = path.dirname(__filename);
 const CSV_FILE = "result.csv";
 const JSON_FILE = "menuData.json";
 
-// Дефинирање на очекуваните наслови (HEADERS) од CSV датотеката
+// ⚠️ КОРИГИРАНО: Ги вклучуваме сите 10 колони од вашиот CSV
 const HEADERS = [
   "ID",
   "Name",
+  "CategoryTitle", // Нова колона
   "CategoryKey",
   "Price30cm",
   "Price40cm",
   "Price50cm",
   "Tag",
   "IsSpecial",
+  "imageURL", // Нова колона
 ];
 
-// Преводи за наслови на категориите
+// Преводи за наслови на категориите (за потребите на JSON структурата)
 const categoryTitles = {
   classics: "Класични Пици",
   veggie: "Вегетаријански Пици",
@@ -41,7 +43,6 @@ const categoryTitles = {
 function parseAndTransformCSV() {
   try {
     // 1. Читање на CSV датотеката
-    // Користиме path.join(process.cwd(), ...) за да биде компатибилно со GitHub Actions
     const csvPath = path.join(process.cwd(), CSV_FILE);
     const csvText = fs.readFileSync(csvPath, "utf8");
 
@@ -51,18 +52,30 @@ function parseAndTransformCSV() {
 
     // Прескокни го првиот ред (насловите)
     for (let i = 1; i < lines.length; i++) {
-      const values = lines[i].split(",").map((v) => v.trim());
+      // Користиме regex за да се справиме со запирките во податоци опкружени со наводници (како таговите)
+      const values =
+        lines[i].match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g) || lines[i].split(",");
 
-      if (values.length !== HEADERS.length) {
+      // Понекогаш .match враќа +1 колона ако има празен стринг на крај.
+      // Ќе се вратиме на поедноставна .split логика и ќе ја поправиме должината.
+
+      const valuesSimple = lines[i]
+        .split(",")
+        .map((v) => v.trim().replace(/^"|"$/g, ""));
+
+      if (valuesSimple.length !== HEADERS.length) {
+        // Оваа порака сега треба да ви даде појасна слика ако некој ред е skip-нат
         console.warn(
-          `[ПРЕСКОКНАТО] Ред ${i + 1} поради несовпаѓање на колони: ${lines[i]}`
+          `[ПРЕСКОКНАТО] Ред ${i + 1} (${
+            valuesSimple.length
+          } колони). Очекувано: ${HEADERS.length}.`
         );
         continue;
       }
 
       const item = {};
       HEADERS.forEach((header, j) => {
-        item[header] = values[j];
+        item[header] = valuesSimple[j];
       });
       rawData.push(item);
     }
@@ -81,15 +94,18 @@ function parseAndTransformCSV() {
       const item = {
         id: parseInt(row.ID),
         name: row.Name,
-        imageURL: "../images/pizza_placeholder.png",
+        // Ја земаме патеката за слика директно од CSV-то
+        imageURL: row.imageURL || "../images/pizza_placeholder.png",
       };
 
+      // Проверка за цени
       if (p30 && p40 && p50) {
         item.prices = [p30, p40, p50];
       } else if (p30) {
         item.singlePrice = p30;
       }
 
+      // Додавање на Tag и IsSpecial
       if (row.Tag) {
         item.tag = row.Tag;
         if (row.IsSpecial && row.IsSpecial.toLowerCase() === "true") {
@@ -100,7 +116,9 @@ function parseAndTransformCSV() {
       // Групирање
       if (!transformedData[categoryKey]) {
         transformedData[categoryKey] = {
-          title: categoryTitles[categoryKey] || categoryKey,
+          // Ја користиме CategoryTitle од CSV-то, но може да ја земеме и од categoryTitles мапата
+          title:
+            row.CategoryTitle || categoryTitles[categoryKey] || categoryKey,
           items: [],
         };
       }
@@ -133,5 +151,5 @@ function parseAndTransformCSV() {
   }
 }
 
-// Извршување на функцијата кога фајлот се повикува директно како ES модул
+// Извршување на функцијата
 parseAndTransformCSV();
