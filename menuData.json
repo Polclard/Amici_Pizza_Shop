@@ -1,3 +1,209 @@
 {
-  "menuData": {}
+  "menuData": {
+    "classics": {
+      "title": "Класични Пици",
+      "items": [
+        {
+          "id": 1,
+          "name": "Маргарита",
+          "imageURL": "../images/pizza_placeholder.png",
+          "prices": [
+            289,
+            399,
+            599
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Фунги",
+          "imageURL": "../images/pizza_placeholder.png",
+          "prices": [
+            289,
+            429,
+            619
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Везувио",
+          "imageURL": "../images/pizza_placeholder.png",
+          "prices": [
+            289,
+            429,
+            619
+          ]
+        },
+        {
+          "id": 4,
+          "name": "Хаваи",
+          "imageURL": "../images/pizza_placeholder.png",
+          "prices": [
+            299,
+            439,
+            629
+          ]
+        },
+        {
+          "id": 5,
+          "name": "Капричиоза",
+          "imageURL": "../images/pizza_placeholder.png",
+          "prices": [
+            299,
+            439,
+            629
+          ]
+        }
+      ]
+    },
+    "veggie": {
+      "title": "Вегетаријански Пици",
+      "items": [
+        {
+          "id": 6,
+          "name": "Веге",
+          "imageURL": "../images/pizza_placeholder.png",
+          "prices": [
+            299,
+            439,
+            629
+          ]
+        },
+        {
+          "id": 7,
+          "name": "Кватро Формаџи",
+          "imageURL": "../images/pizza_placeholder.png",
+          "prices": [
+            349,
+            499,
+            729
+          ]
+        }
+      ]
+    },
+    "gourmet": {
+      "title": "Гурмански Пици",
+      "items": [
+        {
+          "id": 8,
+          "name": "Пеперони",
+          "imageURL": "../images/pizza_placeholder.png",
+          "prices": [
+            319,
+            449,
+            649
+          ]
+        },
+        {
+          "id": 9,
+          "name": "Тоно",
+          "imageURL": "../images/pizza_placeholder.png",
+          "prices": [
+            319,
+            449,
+            649
+          ]
+        },
+        {
+          "id": 10,
+          "name": "Пармицана",
+          "imageURL": "../images/pizza_placeholder.png",
+          "prices": [
+            349,
+            499,
+            729
+          ]
+        },
+        {
+          "id": 11,
+          "name": "Бјанка",
+          "imageURL": "../images/pizza_placeholder.png",
+          "prices": [
+            349,
+            499,
+            729
+          ],
+          "tag": "Препорака на мајсторот"
+        },
+        {
+          "id": 12,
+          "name": "Делициоза",
+          "imageURL": "../images/pizza_placeholder.png",
+          "prices": [
+            349,
+            499,
+            729
+          ],
+          "tag": "Препорака на мајсторот"
+        },
+        {
+          "id": 13,
+          "name": "Кватро Стациони",
+          "imageURL": "../images/pizza_placeholder.png",
+          "prices": [
+            349,
+            499,
+            729
+          ]
+        },
+        {
+          "id": 14,
+          "name": "Тоно е Рукола",
+          "imageURL": "../images/pizza_placeholder.png",
+          "prices": [
+            379,
+            599,
+            799
+          ]
+        },
+        {
+          "id": 16,
+          "name": "Пршуто",
+          "imageURL": "../images/pizza_placeholder.png",
+          "prices": [
+            399,
+            649,
+            899
+          ]
+        },
+        {
+          "id": 15,
+          "name": "Гурманска",
+          "imageURL": "../images/pizza_placeholder.png",
+          "prices": [
+            449,
+            699,
+            989
+          ]
+        }
+      ]
+    },
+    "premium": {
+      "title": "Премиум Пици",
+      "items": [
+        {
+          "id": 17,
+          "name": "Сапоре Рустико",
+          "imageURL": "../images/pizza_placeholder.png",
+          "prices": [
+            479,
+            749,
+            1049
+          ],
+          "tag": "Препорака на мајсторот"
+        },
+        {
+          "id": 18,
+          "name": "Македонка",
+          "imageURL": "../images/pizza_placeholder.png",
+          "prices": [
+            499,
+            799,
+            1099
+          ],
+          "tag": "Наш специјалитет",
+          "isSpecial": true
+        }
+      ]
+    }
+  }
 }
