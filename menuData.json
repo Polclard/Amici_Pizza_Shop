@@ -16,7 +16,7 @@
         {
           "id": 2,
           "name": "Фунги",
-          "imageURL": ".images/pizza_placeholder.png",
+          "imageURL": "images/pizza_placeholder.png",
           "prices": [
             289,
             429,
