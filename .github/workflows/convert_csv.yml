@@ -1,23 +1,24 @@
-# .github/workflows/convert_csv.yml
-
 name: Convert CSV to JSON
 
 on:
   # Изврши го овој workflow секогаш кога ќе има притискање (push)
-  # на 'main' или 'master' гранката (branch), но само ако се промени result.csv
+  # на 'main' или 'master' гранката (branch), но само ако се промени result.csv или парсерот
   push:
     branches:
       - main
       - master
     paths:
       - "result.csv"
-      - "csvToJsonParser.js" # Додадете го и парсерот за секој случај
+      - "csvToJsonParser.js"
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    # ⚠️ КЛУЧНО: Додавање дозволи за запишување
     permissions:
       contents: write
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -28,6 +29,7 @@ jobs:
           node-version: "20"
 
       - name: Execute CSV to JSON conversion script
+        # Користиме 'node csvToJsonParser.js' за да го извршиме ES модулот
         run: node csvToJsonParser.js
 
       - name: Commit and push JSON if changed
@@ -36,15 +38,21 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
-          # Провери дали има промени во menuData.json
-          if git diff --exit-code ${{ env.JSON_FILE }}; then
-            echo "menuData.json не е променет. Прескокнувам commit."
+          # Stage-ирај ја новата JSON датотека
+          git add menuData.json
+
+          # Обиди се да направиш commit. 
+          # Ако нема промени ('nothing to commit'), командата ќе пропадне, 
+          # но '|| echo' дозволува акцијата да продолжи
+          git commit -m "Auto-generated menuData.json after CSV update" || echo "No changes to commit."
+
+          # Провери дали има нов commit (со нашата порака) пред да правиш push.
+          # Ова гарантира дека push-от се случува само ако податоците навистина се смениле.
+          if git log -1 --pretty=format:%s | grep -q "Auto-generated menuData.json after CSV update"; then
+             echo "Pushing changes."
+             git push
           else
-            echo "Промените во menuData.json ќе бидат запишани."
-            git add menuData.json
-            git commit -m "Auto-generated menuData.json after CSV update"
-            # Притисни ги промените во репозиториумот
-            git push
+             echo "menuData.json е ист. Прескокнувам push."
           fi
         env:
           JSON_FILE: menuData.json
